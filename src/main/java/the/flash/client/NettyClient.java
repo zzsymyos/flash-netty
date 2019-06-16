@@ -33,8 +33,10 @@ public class NettyClient {
         NioEventLoopGroup workerGroup = new NioEventLoopGroup();
 
         Bootstrap bootstrap = new Bootstrap();
+        // 1.指定线程模型
         bootstrap
                 .group(workerGroup)
+                // 2.指定 IO 类型为 NIO
                 .channel(NioSocketChannel.class)
                 .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 5000)
                 .option(ChannelOption.SO_KEEPALIVE, true)
